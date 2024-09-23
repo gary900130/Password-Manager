@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密碼管理器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}">
+</head>
+<body>
+    <div id="header" class="header">
+        <div class="search">
+            <input type="text" id="searchBar" class="searchBar" placeholder="搜尋">
+            <button id="searchButton" class="searchButton">
+                <img src="{{ url_for('static', filename='images/search-icon.svg') }}" alt="">
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="containerLeft">
+            <div class="leftTitle">
+                <p>My Password</p>
+                <div class="add-password">
+                    <button id="addButton" class="addButton">
+                        <img src="{{ url_for('static', filename='images/plus-line-icon.svg') }}" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="passwords">
+                <ul class="passwordList">
+                </ul>
+            </div>
+        </div>
+        <div class="containerRight">
+            <div class="passwordInfo">
+                <div class="infoBlock">
+                    <span class="infoBar">
+                        <p>標題</p>
+                        <input id="infoTitle" class="inputBar"  type="text" code="">
+                    </span>
+                    <span class="infoBar">
+                        <p>帳號</p>
+                        <input id="account" class="inputBar"  type="text">
+                    </span>
+                    <span class="infoBar">
+                        <p>密碼</p>
+                        <input id="password" class="inputBar"  type="text">
+                    </span>
+                    <span class="infoBar">
+                        <p>網址</p>
+                        <input id="infoSite" class="inputBar"  type="text">
+                    </span>
+                    <span class="infoBar">
+                        <p>備註</p>
+                        <textarea id="note" class="inputArea" rows="1"></textarea>
+                    </span>
+                </div>
+            </div>
+            <div class="edit-password">
+                <button id="confirmButton" class="confirmButton">
+                    <img src="{{ url_for('static', filename='images/check-mark-box-icon.svg') }}" alt="">
+                </button>
+                <button id="deleteButton" class="deleteButton">
+                    <img src="{{ url_for('static', filename='images/delete-icon.svg') }}" alt="">
+                </button>
+            </div>
+        <script type="module" src="{{ url_for('static', filename='scripts/app.js') }}"></script>
+    </body>
+</html>

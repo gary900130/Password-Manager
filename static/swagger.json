@@ -1,0 +1,110 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "JSON Object Management API",
+    "description": "API for managing JSON objects",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/add": {
+      "post": {
+        "summary": "Add a new object",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Object to be added",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {"type": "string", "default": ""},
+                "account": {"type": "string", "default": ""},
+                "password": {"type": "string", "default": ""},
+                "site": {"type": "string", "default": ""},
+                "note": {"type": "string", "default": ""}
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Object added successfully"
+          }
+        }
+      }
+    },
+    "/update/{code}": {
+      "put": {
+        "summary": "Update an existing object",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "code",
+            "required": true,
+            "type": "string",
+            "description": "Code of the object to update"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated object data",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {"type": "string"},
+                "account": {"type": "string"},
+                "password": {"type": "string"},
+                "site": {"type": "string"},
+                "note": {"type": "string"}
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object updated successfully"
+          },
+          "404": {
+            "description": "Object not found"
+          }
+        }
+      }
+    },
+    "/delete/{code}": {
+      "delete": {
+        "summary": "Delete an object",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "code",
+            "required": true,
+            "type": "string",
+            "description": "Code of the object to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object deleted successfully"
+          },
+          "404": {
+            "description": "Object not found"
+          }
+        }
+      }
+    },
+    "/objects": {
+      "get": {
+        "summary": "Get all objects",
+        "responses": {
+          "200": {
+            "description": "List of all objects"
+          }
+        }
+      }
+    }
+  }
+}
